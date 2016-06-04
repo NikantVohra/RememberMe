@@ -13,10 +13,11 @@
 		054CC7301D0292DD00526FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054CC72E1D0292DD00526FF8 /* Main.storyboard */; };
 		054CC7321D0292DD00526FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 054CC7311D0292DD00526FF8 /* Assets.xcassets */; };
 		054CC7351D0292DD00526FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */; };
-		054CC7401D0292DD00526FF8 /* RememberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC73F1D0292DD00526FF8 /* RememberMeTests.m */; };
 		054CC74B1D0292DD00526FF8 /* RememberMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC74A1D0292DD00526FF8 /* RememberMeUITests.m */; };
 		054CC7791D0299A700526FF8 /* TrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC7781D0299A700526FF8 /* TrackService.m */; };
 		054CC77D1D0299F800526FF8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC77C1D0299F800526FF8 /* Track.m */; };
+		05DE88481D02B4DF00D537E9 /* TrackServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */; };
+		05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88491D02B6D900D537E9 /* TrackModelTests.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
 /* End PBXBuildFile section */
@@ -50,7 +51,6 @@
 		054CC7341D0292DD00526FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		054CC7361D0292DD00526FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		054CC73B1D0292DD00526FF8 /* RememberMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		054CC73F1D0292DD00526FF8 /* RememberMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RememberMeTests.m; sourceTree = "<group>"; };
 		054CC7411D0292DD00526FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		054CC7461D0292DD00526FF8 /* RememberMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		054CC74A1D0292DD00526FF8 /* RememberMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RememberMeUITests.m; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		054CC77B1D0299F800526FF8 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		054CC77C1D0299F800526FF8 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		05DE88461D02B45D00D537E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackServiceTests.m; sourceTree = "<group>"; };
+		05DE88491D02B6D900D537E9 /* TrackModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModelTests.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
 		78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RememberMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +148,8 @@
 		054CC73E1D0292DD00526FF8 /* RememberMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				054CC73F1D0292DD00526FF8 /* RememberMeTests.m */,
+				05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */,
+				05DE88491D02B6D900D537E9 /* TrackModelTests.m */,
 				054CC7411D0292DD00526FF8 /* Info.plist */,
 			);
 			path = RememberMeTests;
@@ -442,7 +445,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				054CC7401D0292DD00526FF8 /* RememberMeTests.m in Sources */,
+				05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */,
+				05DE88481D02B4DF00D537E9 /* TrackServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
