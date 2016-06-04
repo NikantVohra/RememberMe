@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface TrackService : NSObject
+
+-(void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *tracks, NSError *error))completion;
 
 @end
