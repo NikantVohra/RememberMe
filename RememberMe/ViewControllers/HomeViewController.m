@@ -7,18 +7,17 @@
 //
 
 #import "HomeViewController.h"
-#import "TrackDataManager.h"
 #import "TrackCollectionViewCell.h"
 #import "TrackCollectionViewCell.h"
 #import "Track.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "GameManager.h"
 
 
 @interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *trackList;
-@property (nonatomic, strong) TrackDataManager *dataManager;
+@property (nonatomic, strong) GameManager *gameManager;
 @end
 
 @implementation HomeViewController
@@ -29,12 +28,10 @@ static const float CellPadding = 5.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.trackList = [[NSMutableArray alloc] init];
-    self.dataManager = [[TrackDataManager alloc] init];
-    [self.dataManager getTrackListWithCompletionHandler:^(NSArray *tracks, NSError *error) {
-        if(!error) {
-            [self.trackList addObjectsFromArray:tracks];
-            [self.collectionView reloadData];
-        }
+    self.gameManager = [[GameManager alloc] init];
+    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+        [self.trackList addObjectsFromArray:tracks];
+        [self.collectionView reloadData];
     }];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -45,7 +42,7 @@ static const float CellPadding = 5.0;
     
 }
 
-#pragma mark - UICollectionView Data Source
+#pragma mark - UICollectionView DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return self.trackList.count;
@@ -58,7 +55,7 @@ static const float CellPadding = 5.0;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TrackCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TrackCollectionViewCell" forIndexPath:indexPath];
     Track *track = [self.trackList objectAtIndex:indexPath.row];
-    [cell.artworkImageView sd_setImageWithURL:[NSURL URLWithString:track.artworkUrl] placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageRetryFailed];
+    [cell configureWithTrack:track];
     return cell;
 }
 

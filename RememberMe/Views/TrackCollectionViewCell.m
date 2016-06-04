@@ -10,4 +10,9 @@
 
 @implementation TrackCollectionViewCell
 
+- (void)configureWithTrack:(Track *)track {
+    [self.artworkImageView sd_setImageWithURL:[NSURL URLWithString:track.artworkUrl] placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageRetryFailed];
+
+}
+
 @end

@@ -18,4 +18,11 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    Track *copy = [[[self class] allocWithZone: zone] init];
+    [copy setTrackId:self.trackId];
+    [copy setArtworkUrl:self.artworkUrl];
+    return copy;
+}
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Track : NSObject
+@interface Track : NSObject<NSCopying>
 
 @property (nonatomic, strong) NSNumber *trackId;
 @property (nonatomic, strong) NSString *artworkUrl;

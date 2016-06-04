@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Track.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface TrackCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
+
+- (void)configureWithTrack:(Track *)track;
 
 @end
