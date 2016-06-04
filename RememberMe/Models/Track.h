@@ -10,7 +10,7 @@
 
 @interface Track : NSObject
 
-@property (nonatomic, strong) NSString *trackId;
+@property (nonatomic, strong) NSNumber *trackId;
 @property (nonatomic, strong) NSString *artworkUrl;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

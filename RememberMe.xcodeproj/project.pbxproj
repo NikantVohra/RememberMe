@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		054CC7271D0292DD00526FF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC7261D0292DD00526FF8 /* main.m */; };
 		054CC72A1D0292DD00526FF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC7291D0292DD00526FF8 /* AppDelegate.m */; };
-		054CC72D1D0292DD00526FF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC72C1D0292DD00526FF8 /* ViewController.m */; };
 		054CC7301D0292DD00526FF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054CC72E1D0292DD00526FF8 /* Main.storyboard */; };
 		054CC7321D0292DD00526FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 054CC7311D0292DD00526FF8 /* Assets.xcassets */; };
 		054CC7351D0292DD00526FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,8 @@
 		05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88491D02B6D900D537E9 /* TrackModelTests.m */; };
 		05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */; };
 		05DE88531D02BE1500D537E9 /* TrackDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88521D02BE1500D537E9 /* TrackDataManagerTests.m */; };
+		05DE88571D02C54100D537E9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88561D02C54100D537E9 /* HomeViewController.m */; };
+		05DE885B1D02C77500D537E9 /* TrackCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE885A1D02C77500D537E9 /* TrackCollectionViewCell.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
 /* End PBXBuildFile section */
@@ -46,8 +47,6 @@
 		054CC7261D0292DD00526FF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		054CC7281D0292DD00526FF8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		054CC7291D0292DD00526FF8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		054CC72B1D0292DD00526FF8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		054CC72C1D0292DD00526FF8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		054CC72F1D0292DD00526FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		054CC7311D0292DD00526FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		054CC7341D0292DD00526FF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +66,10 @@
 		05DE884C1D02BB8E00D537E9 /* TrackDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDataManager.h; sourceTree = "<group>"; };
 		05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDataManager.m; sourceTree = "<group>"; };
 		05DE88521D02BE1500D537E9 /* TrackDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDataManagerTests.m; sourceTree = "<group>"; };
+		05DE88551D02C54100D537E9 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		05DE88561D02C54100D537E9 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		05DE88591D02C77500D537E9 /* TrackCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCollectionViewCell.h; sourceTree = "<group>"; };
+		05DE885A1D02C77500D537E9 /* TrackCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCollectionViewCell.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
 		78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RememberMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,13 +130,13 @@
 		054CC7241D0292DD00526FF8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				05DE88581D02C73600D537E9 /* Views */,
 				05DE884B1D02BB6700D537E9 /* DataSources */,
 				054CC77A1D0299DC00526FF8 /* Models */,
 				054CC7581D0298E900526FF8 /* Services */,
+				05DE88541D02C50F00D537E9 /* ViewControllers */,
 				054CC7281D0292DD00526FF8 /* AppDelegate.h */,
 				054CC7291D0292DD00526FF8 /* AppDelegate.m */,
-				054CC72B1D0292DD00526FF8 /* ViewController.h */,
-				054CC72C1D0292DD00526FF8 /* ViewController.m */,
 				054CC72E1D0292DD00526FF8 /* Main.storyboard */,
 				054CC7311D0292DD00526FF8 /* Assets.xcassets */,
 				054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */,
@@ -199,6 +202,24 @@
 			);
 			name = DataSources;
 			path = Services/DataSources;
+			sourceTree = "<group>";
+		};
+		05DE88541D02C50F00D537E9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05DE88551D02C54100D537E9 /* HomeViewController.h */,
+				05DE88561D02C54100D537E9 /* HomeViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05DE88581D02C73600D537E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05DE88591D02C77500D537E9 /* TrackCollectionViewCell.h */,
+				05DE885A1D02C77500D537E9 /* TrackCollectionViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		839F4931912414A57CB20208 /* Frameworks */ = {
@@ -450,11 +471,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				054CC72D1D0292DD00526FF8 /* ViewController.m in Sources */,
 				05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */,
 				054CC72A1D0292DD00526FF8 /* AppDelegate.m in Sources */,
 				054CC7271D0292DD00526FF8 /* main.m in Sources */,
 				054CC77D1D0299F800526FF8 /* Track.m in Sources */,
+				05DE88571D02C54100D537E9 /* HomeViewController.m in Sources */,
+				05DE885B1D02C77500D537E9 /* TrackCollectionViewCell.m in Sources */,
 				054CC7791D0299A700526FF8 /* TrackService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
