@@ -15,6 +15,8 @@
 		054CC7351D0292DD00526FF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */; };
 		054CC7401D0292DD00526FF8 /* RememberMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC73F1D0292DD00526FF8 /* RememberMeTests.m */; };
 		054CC74B1D0292DD00526FF8 /* RememberMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC74A1D0292DD00526FF8 /* RememberMeUITests.m */; };
+		054CC7791D0299A700526FF8 /* TrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC7781D0299A700526FF8 /* TrackService.m */; };
+		054CC77D1D0299F800526FF8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC77C1D0299F800526FF8 /* Track.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		054CC7461D0292DD00526FF8 /* RememberMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		054CC74A1D0292DD00526FF8 /* RememberMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RememberMeUITests.m; sourceTree = "<group>"; };
 		054CC74C1D0292DD00526FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		054CC7771D0299A700526FF8 /* TrackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackService.h; sourceTree = "<group>"; };
+		054CC7781D0299A700526FF8 /* TrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackService.m; sourceTree = "<group>"; };
+		054CC77B1D0299F800526FF8 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		054CC77C1D0299F800526FF8 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 		054CC7241D0292DD00526FF8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				054CC77A1D0299DC00526FF8 /* Models */,
+				054CC7581D0298E900526FF8 /* Services */,
 				054CC7281D0292DD00526FF8 /* AppDelegate.h */,
 				054CC7291D0292DD00526FF8 /* AppDelegate.m */,
 				054CC72B1D0292DD00526FF8 /* ViewController.h */,
@@ -139,6 +147,25 @@
 			);
 			path = RememberMeUITests;
 			sourceTree = "<group>";
+		};
+		054CC7581D0298E900526FF8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				054CC7771D0299A700526FF8 /* TrackService.h */,
+				054CC7781D0299A700526FF8 /* TrackService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		054CC77A1D0299DC00526FF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				054CC77B1D0299F800526FF8 /* Track.h */,
+				054CC77C1D0299F800526FF8 /* Track.m */,
+			);
+			name = Models;
+			path = RememberMe/Models;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -273,6 +300,8 @@
 				054CC72D1D0292DD00526FF8 /* ViewController.m in Sources */,
 				054CC72A1D0292DD00526FF8 /* AppDelegate.m in Sources */,
 				054CC7271D0292DD00526FF8 /* main.m in Sources */,
+				054CC77D1D0299F800526FF8 /* Track.m in Sources */,
+				054CC7791D0299A700526FF8 /* TrackService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
