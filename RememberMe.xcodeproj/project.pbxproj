@@ -19,6 +19,7 @@
 		05DE88481D02B4DF00D537E9 /* TrackServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */; };
 		05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88491D02B6D900D537E9 /* TrackModelTests.m */; };
 		05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */; };
+		05DE88531D02BE1500D537E9 /* TrackDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88521D02BE1500D537E9 /* TrackDataManagerTests.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		05DE88491D02B6D900D537E9 /* TrackModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModelTests.m; sourceTree = "<group>"; };
 		05DE884C1D02BB8E00D537E9 /* TrackDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDataManager.h; sourceTree = "<group>"; };
 		05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDataManager.m; sourceTree = "<group>"; };
+		05DE88521D02BE1500D537E9 /* TrackDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDataManagerTests.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
 		78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RememberMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 			children = (
 				05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */,
 				05DE88491D02B6D900D537E9 /* TrackModelTests.m */,
+				05DE88521D02BE1500D537E9 /* TrackDataManagerTests.m */,
 				054CC7411D0292DD00526FF8 /* Info.plist */,
 			);
 			path = RememberMeTests;
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DE88531D02BE1500D537E9 /* TrackDataManagerTests.m in Sources */,
 				05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */,
 				05DE88481D02B4DF00D537E9 /* TrackServiceTests.m in Sources */,
 			);
