@@ -30,8 +30,10 @@
         if(!error) {
             NSMutableArray *tracks = [[NSMutableArray alloc] init];
             for(NSDictionary *trackDict in response) {
-                Track *track = [[Track alloc] initWithDictionary:trackDict];
-                [tracks addObject:track];
+                if(![trackDict[@"artwork_url"] isKindOfClass:[NSNull class]]) {
+                    Track *track = [[Track alloc] initWithDictionary:trackDict];
+                    [tracks addObject:track];
+                }
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(tracks, nil);
