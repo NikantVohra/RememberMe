@@ -11,6 +11,6 @@
 
 @interface TrackService : NSObject
 
--(void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *tracks, NSError *error))completion;
+-(void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *response, NSError *error))completion;
 
 @end

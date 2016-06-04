@@ -18,6 +18,7 @@
 		054CC77D1D0299F800526FF8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC77C1D0299F800526FF8 /* Track.m */; };
 		05DE88481D02B4DF00D537E9 /* TrackServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */; };
 		05DE884A1D02B6D900D537E9 /* TrackModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88491D02B6D900D537E9 /* TrackModelTests.m */; };
+		05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,8 @@
 		05DE88461D02B45D00D537E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackServiceTests.m; sourceTree = "<group>"; };
 		05DE88491D02B6D900D537E9 /* TrackModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModelTests.m; sourceTree = "<group>"; };
+		05DE884C1D02BB8E00D537E9 /* TrackDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDataManager.h; sourceTree = "<group>"; };
+		05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackDataManager.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
 		78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RememberMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,7 @@
 		054CC7241D0292DD00526FF8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				05DE884B1D02BB6700D537E9 /* DataSources */,
 				054CC77A1D0299DC00526FF8 /* Models */,
 				054CC7581D0298E900526FF8 /* Services */,
 				054CC7281D0292DD00526FF8 /* AppDelegate.h */,
@@ -183,6 +187,16 @@
 			name = Models;
 			path = RememberMe/Models;
 			sourceTree = SOURCE_ROOT;
+		};
+		05DE884B1D02BB6700D537E9 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				05DE884C1D02BB8E00D537E9 /* TrackDataManager.h */,
+				05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */,
+			);
+			name = DataSources;
+			path = Services/DataSources;
+			sourceTree = "<group>";
 		};
 		839F4931912414A57CB20208 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -434,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054CC72D1D0292DD00526FF8 /* ViewController.m in Sources */,
+				05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */,
 				054CC72A1D0292DD00526FF8 /* AppDelegate.m in Sources */,
 				054CC7271D0292DD00526FF8 /* main.m in Sources */,
 				054CC77D1D0299F800526FF8 /* Track.m in Sources */,

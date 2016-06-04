@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *tracks, NSError *error))completion {
+- (void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *response, NSError *error))completion {
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@", soundCloudApiUrl, clientId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     

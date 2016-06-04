@@ -32,10 +32,10 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     XCTestExpectation *fetchTracksExpectation = [self expectationWithDescription:@"fetchTracksExpectation"];
-    [self.trackService fetchTrackListWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+    [self.trackService fetchTrackListWithCompletionHandler:^(NSArray *response, NSError *error) {
         if(!error) {
-            XCTAssertNotNil(tracks);
-            XCTAssertEqual(tracks.count, 50);
+            XCTAssertNotNil(response);
+            XCTAssertGreaterThan(response.count, 0);
         }
         [fetchTracksExpectation fulfill];
     }];
