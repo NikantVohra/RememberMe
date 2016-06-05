@@ -7,13 +7,13 @@
 //
 
 #import "GameManager.h"
-#import "Game.h"
 #import "TrackDataManager.h"
 #import "Track.h"
+#import "NSArray+Shuffle.h"
+#import "Constants.h"
 
 @interface GameManager()
 
-@property (nonatomic, strong) Game *currentGame;
 @property (nonatomic) NSInteger selectedTrackIndex;
 @property (nonatomic) NSMutableDictionary *matchedTracks;
 
@@ -22,7 +22,6 @@
 
 @implementation GameManager
 
-static const int maxTracks = 8;
 
 
 - (void)startGameWithCompletionHandler:(void (^)(NSArray *tracks, NSError *error))completion {
@@ -80,7 +79,9 @@ static const int maxTracks = 8;
 }
 
 - (void)restartGame {
-    
+    self.selectedTrackIndex = -1;
+    self.matchedTracks = [NSMutableDictionary new];
+    [self.currentGame.tracks shuffle];
 }
 
 

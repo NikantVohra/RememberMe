@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Game.h"
+
 @class GameManager;
 
 @protocol GameManagerDelegate <NSObject>
@@ -20,6 +22,7 @@
 @interface GameManager : NSObject
 
 @property (nonatomic, weak) id<GameManagerDelegate> delegate;
+@property (nonatomic, strong) Game *currentGame;
 
 - (void)startGameWithCompletionHandler:(void (^)(NSArray *tracks, NSError *error))completion;
 

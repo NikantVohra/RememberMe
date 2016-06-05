@@ -11,6 +11,7 @@
 #import "TrackCollectionViewCell.h"
 #import "Track.h"
 #import "GameManager.h"
+#import "Constants.h"
 
 
 @interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate, GameManagerDelegate>
@@ -22,7 +23,7 @@
 
 @implementation HomeViewController
 
-static const int CellsPerRow = 4;
+static const int CellsPerRow = maxTracks / 2;
 static const float CellPadding = 5.0;
 
 - (void)viewDidLoad {
@@ -101,6 +102,23 @@ static const float CellPadding = 5.0;
 
 
 - (void)didEndGame {
-    
+    [self resetCells];
+    [self.gameManager restartGame];
+    [self.trackList removeAllObjects];
+    [self.trackList addObjectsFromArray:[[self.gameManager currentGame] tracks]];
+    [self.collectionView reloadData];
 }
+
+- (void)resetCells {
+    for (int i = 0; i < self.trackList.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        TrackCollectionViewCell *cell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        [cell flipToSide:NO];
+    }
+}
+
+
+
+
+
 @end

@@ -63,7 +63,7 @@
 		054CC7781D0299A700526FF8 /* TrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackService.m; sourceTree = "<group>"; };
 		054CC77B1D0299F800526FF8 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		054CC77C1D0299F800526FF8 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
-		05DE88461D02B45D00D537E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05DE88461D02B45D00D537E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Services/Constants.h; sourceTree = "<group>"; };
 		05DE88471D02B4DF00D537E9 /* TrackServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackServiceTests.m; sourceTree = "<group>"; };
 		05DE88491D02B6D900D537E9 /* TrackModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModelTests.m; sourceTree = "<group>"; };
 		05DE884C1D02BB8E00D537E9 /* TrackDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackDataManager.h; sourceTree = "<group>"; };
@@ -139,18 +139,15 @@
 		054CC7241D0292DD00526FF8 /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				05DE88681D03F47000D537E9 /* Storyboards */,
+				05DE88671D03F45500D537E9 /* Resources */,
+				05DE88661D03F43D00D537E9 /* Application */,
 				05DE88621D02EEF900D537E9 /* Helpers */,
 				05DE88581D02C73600D537E9 /* Views */,
 				05DE884B1D02BB6700D537E9 /* DataSources */,
 				054CC77A1D0299DC00526FF8 /* Models */,
 				054CC7581D0298E900526FF8 /* Services */,
 				05DE88541D02C50F00D537E9 /* ViewControllers */,
-				054CC7281D0292DD00526FF8 /* AppDelegate.h */,
-				054CC7291D0292DD00526FF8 /* AppDelegate.m */,
-				054CC72E1D0292DD00526FF8 /* Main.storyboard */,
-				054CC7311D0292DD00526FF8 /* Assets.xcassets */,
-				054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */,
-				054CC7361D0292DD00526FF8 /* Info.plist */,
 				054CC7251D0292DD00526FF8 /* Supporting Files */,
 			);
 			path = RememberMe;
@@ -189,7 +186,6 @@
 			children = (
 				054CC7771D0299A700526FF8 /* TrackService.h */,
 				054CC7781D0299A700526FF8 /* TrackService.m */,
-				05DE88461D02B45D00D537E9 /* Constants.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,8 +237,36 @@
 			children = (
 				05DE88631D02EF1E00D537E9 /* NSArray+Shuffle.h */,
 				05DE88641D02EF1E00D537E9 /* NSArray+Shuffle.m */,
+				05DE88461D02B45D00D537E9 /* Constants.h */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		05DE88661D03F43D00D537E9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				054CC7281D0292DD00526FF8 /* AppDelegate.h */,
+				054CC7291D0292DD00526FF8 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		05DE88671D03F45500D537E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				054CC7361D0292DD00526FF8 /* Info.plist */,
+				054CC7311D0292DD00526FF8 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		05DE88681D03F47000D537E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				054CC72E1D0292DD00526FF8 /* Main.storyboard */,
+				054CC7331D0292DD00526FF8 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		839F4931912414A57CB20208 /* Frameworks */ = {

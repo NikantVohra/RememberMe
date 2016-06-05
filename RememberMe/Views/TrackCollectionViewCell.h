@@ -18,5 +18,6 @@
 
 - (void)configureWithTrack:(Track *)track;
 - (void)flip;
+- (void)flipToSide:(BOOL)front;
 
 @end
