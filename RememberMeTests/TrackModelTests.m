@@ -28,8 +28,8 @@
 - (void)testTrackInitialisationFromDictionary {
     NSDictionary *trackDictionary = @{@"id" : @267291077, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"};
     Track *track = [[Track alloc] initWithDictionary:trackDictionary];
-    XCTAssertEqualObjects(track.trackId, @267291077);
-    XCTAssertEqualObjects(track.artworkUrl, @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg");
+    XCTAssertEqualObjects(track.trackId, trackDictionary[@"id"]);
+    XCTAssertEqualObjects(track.artworkUrl, trackDictionary[@"artwork_url"]);
 }
 
 

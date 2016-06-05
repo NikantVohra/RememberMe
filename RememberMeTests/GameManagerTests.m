@@ -8,10 +8,19 @@
 
 #import <XCTest/XCTest.h>
 #import "GameManager.h"
+#import "Constants.h"
+#import "Track.h"
+
+@interface GameManager()
+
+@property (nonatomic, assign) NSInteger selectedTrackIndex;
+@property (nonatomic, strong) NSMutableDictionary *matchedTracks;
+
+@end
 
 @interface GameManagerTests : XCTestCase
 
-@property(nonatomic, strong) GameManager *gameManager;
+@property(nonatomic, strong) NSArray *testTracks;
 
 @end
 
@@ -19,8 +28,11 @@
 
 - (void)setUp {
     [super setUp];
+    Track *track1 = [[Track alloc] initWithDictionary:@{@"id" : @123, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"}];
+    Track *track2 = [[Track alloc] initWithDictionary:@{@"id" : @215, @"artwork_url" : @"https://i1.sndcdn.com/artworks-0001657432-b1vhfv-large.jpg"}];
+    self.testTracks = @[track1, track2, [track1 copy], [track2 copy]];
+
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.gameManager = [[GameManager alloc] init];
 }
 
 - (void)tearDown {
@@ -28,16 +40,64 @@
     [super tearDown];
 }
 
+- (GameManager *)getGameManager {
+    GameManager *gameManager = [[GameManager alloc] init];
+    NSMutableArray *tracksArray = [NSMutableArray new];
+    for (int i=0; i < maxTracks; i++) {
+        Track *newTrack = [[Track alloc] initWithDictionary:@{@"id":@(i)}];
+        [tracksArray addObject:newTrack];
+    }
+    gameManager.currentGame = [[Game alloc] initWithTracks:tracksArray];
+    gameManager.matchedTracks = [NSMutableDictionary new];
+    gameManager.selectedTrackIndex = -1;
+    return gameManager;
+}
+
 - (void)testStartGame {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    GameManager *gameManager = [[GameManager alloc] init];
     XCTestExpectation *startGameExpectation = [self expectationWithDescription:@"startGameExpectation"];
-    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+    [gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
         if(!error) {
             XCTAssertNotNil(tracks);
         }
         [startGameExpectation fulfill];
     }];
+    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+}
+
+- (void)testIsTrackAlreadySelected {
+    GameManager *gameManager = [self getGameManager];
+    [gameManager.matchedTracks setObject:@1 forKey:@0];
+    XCTAssertTrue([gameManager isTrackAlreadySelected:0]);
+    XCTAssertFalse([gameManager isTrackAlreadySelected:1]);
+}
+
+
+- (void)testSelectTrackAtIndex {
+    GameManager *gameManager = [self getGameManager];
+    [gameManager selectTrackAtIndex:5];
+    XCTAssertEqual(gameManager.selectedTrackIndex, 5);
+}
+
+- (void)testTracksDidMatch {
+    GameManager *gameManager = [self getGameManager];
+    gameManager.currentGame.tracks = self.testTracks;
+    gameManager.selectedTrackIndex = 0;
+    [gameManager selectTrackAtIndex:2];
+    XCTAssertEqual(gameManager.selectedTrackIndex, -1); //reset the selected index on chosing same tracks
+    XCTAssertNotNil([gameManager.matchedTracks objectForKey:@0]);//matchedDict contains a non nil vallue for index 0
+    XCTAssertNotNil([gameManager.matchedTracks objectForKey:@2]);
+}
+
+-(void)testTracksDidNotMatch {
+    GameManager *gameManager = [self getGameManager];
+    gameManager.currentGame.tracks = self.testTracks;
+    gameManager.selectedTrackIndex = 0;
+    [gameManager selectTrackAtIndex:1];
+    XCTAssertEqual(gameManager.selectedTrackIndex, -1); //reset the selected index on chosing differen tracks
+    XCTAssertNil([gameManager.matchedTracks objectForKey:@0]);//matchedDict contains a  nil vallue for index 0
+    XCTAssertNil([gameManager.matchedTracks objectForKey:@1]);
+
 }
 
 
