@@ -108,12 +108,20 @@ static const float CellPadding = 5.0;
 
 
 - (void)didEndGame {
+    [self displayGameFinishedAlert];
+}
+
+
+#pragma mark - Helper Methods
+
+- (void)resetGame {
     [self resetCells];
     [self.gameManager restartGame];
     [self.trackList removeAllObjects];
     [self.trackList addObjectsFromArray:[[self.gameManager currentGame] tracks]];
     [self.collectionView reloadData];
 }
+
 
 - (void)resetCells {
     for (int i = 0; i < self.trackList.count; i++) {
@@ -123,6 +131,17 @@ static const float CellPadding = 5.0;
     }
 }
 
+
+- (void)displayGameFinishedAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Awesome", nil)
+                                                                             message:NSLocalizedString(@"You won the game. Play Again.", nil)
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self resetGame];
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 
 
