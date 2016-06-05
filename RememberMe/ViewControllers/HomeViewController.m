@@ -12,6 +12,8 @@
 #import "Track.h"
 #import "GameManager.h"
 #import "Constants.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
 
 
 @interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate, GameManagerDelegate>
@@ -42,9 +44,13 @@ static const float CellPadding = 5.0;
 - (void)startGame {
     self.gameManager = [[GameManager alloc] init];
     self.gameManager.delegate = self;
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Preparing Game", nil)];
     [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
-        [self.trackList addObjectsFromArray:tracks];
-        [self.collectionView reloadData];
+        [SVProgressHUD dismiss];
+        if(!error) {
+            [self.trackList addObjectsFromArray:tracks];
+            [self.collectionView reloadData];
+        }
     }];
 }
 
