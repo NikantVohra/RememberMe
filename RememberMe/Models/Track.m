@@ -25,4 +25,5 @@
     [copy setArtworkUrl:self.artworkUrl];
     return copy;
 }
+
 @end

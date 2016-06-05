@@ -14,7 +14,9 @@
 @interface TrackCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 - (void)configureWithTrack:(Track *)track;
+- (void)flip;
 
 @end

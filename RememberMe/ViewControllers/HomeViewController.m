@@ -13,7 +13,7 @@
 #import "GameManager.h"
 
 
-@interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate, GameManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *trackList;
@@ -28,18 +28,23 @@ static const float CellPadding = 5.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.trackList = [[NSMutableArray alloc] init];
-    self.gameManager = [[GameManager alloc] init];
-    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
-        [self.trackList addObjectsFromArray:tracks];
-        [self.collectionView reloadData];
-    }];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [self startGame];
     
 }
 
 - (void)didReceiveMemoryWarning {
     
+}
+
+- (void)startGame {
+    self.gameManager = [[GameManager alloc] init];
+    self.gameManager.delegate = self;
+    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+        [self.trackList addObjectsFromArray:tracks];
+        [self.collectionView reloadData];
+    }];
 }
 
 #pragma mark - UICollectionView DataSource
@@ -72,10 +77,30 @@ static const float CellPadding = 5.0;
     return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    TrackCollectionViewCell *cell = (TrackCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if(![self.gameManager isTrackAlreadySelected:indexPath.row]) {
+        [cell flip];
+        [self.gameManager selectTrackAtIndex:indexPath.row];
+    }
 }
 
 
+#pragma mark - GameManager Delegate
+
+- (void)gameManager:(GameManager *)manager didFoundMatchAtIndex:(NSInteger)firstindex withIndex:(NSInteger)secondIndex {
+    
+}
+
+- (void)gameManager:(GameManager *)manager didNotFindMatchAtIndex:(NSInteger)firstindex withIndex:(NSInteger)secondIndex {
+    TrackCollectionViewCell *firstCell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstindex inSection:0]];
+    TrackCollectionViewCell *secondCell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
+    [firstCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+    [secondCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+}
+
+
+- (void)didEndGame {
+    
+}
 @end

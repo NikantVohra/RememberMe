@@ -9,12 +9,13 @@
 #import "GameManager.h"
 #import "Game.h"
 #import "TrackDataManager.h"
+#import "Track.h"
 
 @interface GameManager()
 
 @property (nonatomic, strong) Game *currentGame;
 @property (nonatomic) NSInteger selectedTrackIndex;
-@property (nonatomic) NSInteger mismatchedTracks;
+@property (nonatomic) NSMutableDictionary *matchedTracks;
 
 @end
 
@@ -33,6 +34,9 @@ static const int maxTracks = 8;
             }
             else {
                 self.currentGame = [[Game alloc] initWithTracks:tracks];
+                self.matchedTracks = [[NSMutableDictionary alloc] init];
+                self.selectedTrackIndex = -1;
+
                 completion(self.currentGame.tracks, nil);
             }
         }
@@ -41,6 +45,44 @@ static const int maxTracks = 8;
         }
     }];
 }
+
+- (void)selectTrackAtIndex:(NSInteger)index
+{
+    if (index >= self.currentGame.tracks.count || [self isTrackAlreadySelected:index]) {
+        return;
+    }
+    
+    Track *currentTrack = self.currentGame.tracks[index];
+    
+    if (self.selectedTrackIndex > -1 && index != self.selectedTrackIndex) {
+        Track *selectedTrack = self.currentGame.tracks[self.selectedTrackIndex];
+        if ([selectedTrack.trackId isEqualToNumber:currentTrack.trackId]) {
+            [self.delegate gameManager:self didFoundMatchAtIndex:index withIndex:self.selectedTrackIndex];
+            [self.matchedTracks setObject:@1 forKey:@(index)];
+            [self.matchedTracks setObject:@1 forKey:@(self.selectedTrackIndex)];
+            if (self.matchedTracks.allKeys.count == self.currentGame.tracks.count) {
+                [self.delegate didEndGame];
+            }
+        }
+        else {
+            [self.delegate gameManager:self didNotFindMatchAtIndex:index withIndex:self.selectedTrackIndex];
+        }
+        self.selectedTrackIndex = -1;
+    }
+    else {
+        self.selectedTrackIndex = index;
+    }
+    return;
+}
+
+- (BOOL)isTrackAlreadySelected:(NSUInteger)index {
+    return [self.matchedTracks objectForKey:@(index)] != nil;
+}
+
+- (void)restartGame {
+    
+}
+
 
 
 @end

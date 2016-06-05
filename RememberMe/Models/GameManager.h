@@ -27,4 +27,6 @@
 
 - (void)restartGame;
 
+- (BOOL)isTrackAlreadySelected:(NSUInteger)index;
+
 @end

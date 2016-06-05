@@ -37,17 +37,25 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-hx-g3O">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="asN-yB-iO5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="4a2-hx-g3O" firstAttribute="top" secondItem="DhP-zZ-Ia0" secondAttribute="top" id="2Wb-Nk-B28"/>
+                                            <constraint firstAttribute="bottom" secondItem="asN-yB-iO5" secondAttribute="bottom" id="Dk2-aK-Ofg"/>
+                                            <constraint firstItem="asN-yB-iO5" firstAttribute="leading" secondItem="DhP-zZ-Ia0" secondAttribute="leading" id="Mjc-07-NpZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="asN-yB-iO5" secondAttribute="trailing" id="PAc-B1-y5d"/>
                                             <constraint firstItem="4a2-hx-g3O" firstAttribute="leading" secondItem="DhP-zZ-Ia0" secondAttribute="leading" id="eW1-F1-Ir0"/>
                                             <constraint firstAttribute="bottom" secondItem="4a2-hx-g3O" secondAttribute="bottom" id="g4p-TM-wED"/>
                                             <constraint firstAttribute="trailing" secondItem="4a2-hx-g3O" secondAttribute="trailing" id="tA3-tx-0cU"/>
+                                            <constraint firstItem="asN-yB-iO5" firstAttribute="top" secondItem="DhP-zZ-Ia0" secondAttribute="top" id="xQz-G9-iqI"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="artworkImageView" destination="4a2-hx-g3O" id="O9H-m6-A6R"/>
+                                            <outlet property="backgroundImageView" destination="asN-yB-iO5" id="cW4-cw-c58"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -89,4 +97,7 @@
             <point key="canvasLocation" x="262" y="175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="225" height="225"/>
+    </resources>
 </document>
