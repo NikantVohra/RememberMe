@@ -119,5 +119,15 @@
     OCMVerifyAll(self.mockDelegate);
 }
 
+- (void)testRestartGame {
+    GameManager *gameManager = [self getGameManager];
+    gameManager.currentGame.tracks = self.testTracks;
+    gameManager.selectedTrackIndex = 0;
+    [gameManager selectTrackAtIndex:2];
+    [gameManager restartGame];
+    XCTAssertEqual(gameManager.selectedTrackIndex, -1);
+    XCTAssertEqual(gameManager.matchedTracks.allKeys.count, 0);
+
+}
 
 @end
