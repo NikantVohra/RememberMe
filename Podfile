@@ -9,6 +9,7 @@ end
 target 'RememberMeTests' do
     pod 'SDWebImage'
     pod 'AFNetworking'
+	pod 'OCMock'
 end
 
 
