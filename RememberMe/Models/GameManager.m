@@ -35,7 +35,6 @@
                 self.currentGame = [[Game alloc] initWithTracks:tracks];
                 self.matchedTracks = [[NSMutableDictionary alloc] init];
                 self.selectedTrackIndex = -1;
-
                 completion(self.currentGame.tracks, nil);
             }
         }

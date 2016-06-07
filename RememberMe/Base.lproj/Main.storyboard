@@ -37,7 +37,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-hx-g3O">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="asN-yB-iO5">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="asN-yB-iO5">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                             </subviews>
@@ -69,7 +69,13 @@
                             <constraint firstItem="jl1-Ru-2ay" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="wDs-3a-Tmo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Remember Me" id="l0h-Nu-rpl"/>
+                    <navigationItem key="navigationItem" title="Remember Me" id="l0h-Nu-rpl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Kvy-z1-T7o">
+                            <connections>
+                                <action selector="resetButtonPressed:" destination="BYZ-38-t0r" id="pzo-pK-rD1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="jl1-Ru-2ay" id="21o-Hz-L7x"/>
                     </connections>
@@ -98,6 +104,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder" width="225" height="225"/>
+        <image name="logo" width="225" height="225"/>
     </resources>
 </document>

@@ -51,6 +51,9 @@ static const float CellPadding = 5.0;
             [self.trackList addObjectsFromArray:tracks];
             [self.collectionView reloadData];
         }
+        else {
+            
+        }
     }];
 }
 
@@ -113,6 +116,10 @@ static const float CellPadding = 5.0;
 
 
 #pragma mark - Helper Methods
+
+- (IBAction)resetButtonPressed:(id)sender {
+    [self resetGame];
+}
 
 - (void)resetGame {
     [self resetCells];

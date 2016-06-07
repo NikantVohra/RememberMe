@@ -12,7 +12,8 @@
 
 @interface TrackDataManager()
 
-@property(nonatomic, strong) TrackService *trackService;
+@property (nonatomic, strong) TrackService *trackService;
+@property (nonatomic, strong) NSMutableDictionary *trackAtworkUrlCache;
 
 @end
 
@@ -21,6 +22,7 @@
 - (id)init {
     if(self = [super init]) {
         self.trackService = [[TrackService alloc] init];
+        self.trackAtworkUrlCache = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -30,8 +32,10 @@
         if(!error) {
             NSMutableArray *tracks = [[NSMutableArray alloc] init];
             for(NSDictionary *trackDict in response) {
-                if(![trackDict[@"artwork_url"] isKindOfClass:[NSNull class]]) {
+                NSString *artworkUrl = trackDict[@"artwork_url"];
+                if(![artworkUrl isKindOfClass:[NSNull class]] && ![self isTrackArtworkAlreadyPresent:artworkUrl]) {
                     Track *track = [[Track alloc] initWithDictionary:trackDict];
+                    [self.trackAtworkUrlCache setObject:@1 forKey:track.artworkUrl];
                     [tracks addObject:track];
                 }
             }
@@ -47,6 +51,10 @@
 
         }
     }];
+}
+
+- (BOOL)isTrackArtworkAlreadyPresent:(NSString *)artworkUrl {
+    return [self.trackAtworkUrlCache objectForKey:artworkUrl];
 }
 
 @end
