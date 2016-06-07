@@ -36,8 +36,6 @@
 }
 
 - (void)testGameInitializationWithTracks {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
     Game *game = [[Game alloc] initWithTracks:self.tracks];
     XCTAssertNotNil(game.tracks);
     XCTAssertEqual(game.tracks.count, maxTracks * 2);

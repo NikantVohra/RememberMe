@@ -74,13 +74,13 @@
 }
 
 - (BOOL)isTrackAlreadySelected:(NSUInteger)index {
-    return [self.matchedTracks objectForKey:@(index)] != nil;
+    return [self.matchedTracks objectForKey:@(index)] != nil || self.selectedTrackIndex == index;
 }
 
 - (void)restartGame {
     self.selectedTrackIndex = -1;
     self.matchedTracks = [NSMutableDictionary new];
-    [self.currentGame.tracks shuffle];
+    self.currentGame.tracks =  [self.currentGame.tracks shuffle];
 }
 
 

@@ -45,6 +45,8 @@ static const float CellPadding = 5.0;
     
 }
 
+
+
 - (void)startGame {
     self.gameManager = [[GameManager alloc] init];
     self.gameManager.delegate = self;
@@ -60,6 +62,14 @@ static const float CellPadding = 5.0;
             
         }
     }];
+}
+
+#pragma mark - Handle Rotation
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionView DataSource
@@ -79,8 +89,10 @@ static const float CellPadding = 5.0;
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat cellWidth = (collectionView.frame.size.width / (CellsPerRow + 1)) - CellPadding;
-    return CGSizeMake(cellWidth, cellWidth);
+    CGFloat cellHeight = (collectionView.frame.size.height / (CellsPerRow + 1)) - CellPadding;
+    return CGSizeMake(cellWidth, cellHeight);
 }
+
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(5, 5, 5, 5);
