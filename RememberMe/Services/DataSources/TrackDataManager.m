@@ -54,7 +54,7 @@
 }
 
 - (BOOL)isTrackArtworkAlreadyPresent:(NSString *)artworkUrl {
-    return [self.trackAtworkUrlCache objectForKey:artworkUrl];
+    return [self.trackAtworkUrlCache objectForKey:artworkUrl] != nil;
 }
 
 @end

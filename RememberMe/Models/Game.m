@@ -15,7 +15,7 @@
 
 - (id)initWithTracks:(NSArray *)tracks {
     if(self = [super init]) {
-        NSArray *filteredTracks = [tracks subarrayWithRange:NSMakeRange(0, maxTracks)];
+        NSArray *filteredTracks = [[tracks shuffle] subarrayWithRange:NSMakeRange(0, maxTracks)];
         NSMutableArray *trackList = [[NSMutableArray alloc] init];
         for(Track *track in filteredTracks) {
             [trackList addObject:track];
