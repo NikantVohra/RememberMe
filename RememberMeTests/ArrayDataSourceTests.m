@@ -25,9 +25,9 @@
 }
 
 - (void)testInitialization {
-    XCTAssertNil([[ArrayDataSource alloc] init]);
+    XCTAssertNil([[ArrayDataSource alloc] init], @"Arraydatasource should be nil if initialized without items");
     id obj1 = [[ArrayDataSource alloc] initWithItems:@[] cellIdentifier:@"foo" configureCellBlock:^(UICollectionViewCell *a, id b){}];
-    XCTAssertNotNil(obj1);
+    XCTAssertNotNil(obj1, @"Arraydatasource should not be nil if initialize with items");
     
 }
 

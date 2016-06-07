@@ -28,6 +28,8 @@
 		05DE886C1D0400DE00D537E9 /* GameModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE886B1D0400DE00D537E9 /* GameModelTests.m */; };
 		05DE88721D068CD000D537E9 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88711D068CD000D537E9 /* ArrayDataSource.m */; };
 		05DE88741D06945400D537E9 /* ArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */; };
+		05DE88761D069ACD00D537E9 /* HomeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */; };
+		05DE88781D06ACEF00D537E9 /* TrackCollectionViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellTests.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,8 @@
 		05DE88701D068CD000D537E9 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
 		05DE88711D068CD000D537E9 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
 		05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSourceTests.m; sourceTree = "<group>"; };
+		05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTests.m; sourceTree = "<group>"; };
+		05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCollectionViewCellTests.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
 		78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RememberMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +183,8 @@
 				05DE88691D03FE4800D537E9 /* GameManagerTests.m */,
 				05DE886B1D0400DE00D537E9 /* GameModelTests.m */,
 				05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */,
+				05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */,
+				05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellTests.m */,
 				054CC7411D0292DD00526FF8 /* Info.plist */,
 			);
 			path = RememberMeTests;
@@ -550,6 +556,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DE88781D06ACEF00D537E9 /* TrackCollectionViewCellTests.m in Sources */,
+				05DE88761D069ACD00D537E9 /* HomeViewControllerTests.m in Sources */,
 				05DE88741D06945400D537E9 /* ArrayDataSourceTests.m in Sources */,
 				05DE88531D02BE1500D537E9 /* TrackDataManagerTests.m in Sources */,
 				05DE886C1D0400DE00D537E9 /* GameModelTests.m in Sources */,

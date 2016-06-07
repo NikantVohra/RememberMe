@@ -45,7 +45,6 @@ static const float CellPadding = 5.0;
     
 }
 
-
 - (void)startGame {
     self.gameManager = [[GameManager alloc] init];
     self.gameManager.delegate = self;

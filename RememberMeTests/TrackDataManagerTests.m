@@ -34,9 +34,9 @@
     XCTestExpectation *getTrackListExpectation = [self expectationWithDescription:@"fetchTracksExpectation"];
     [self.dataManager getTrackListWithCompletionHandler:^(NSArray *tracks, NSError *error) {
         if(!error) {
-            XCTAssertNotNil(tracks);
-            XCTAssertGreaterThan(tracks.count, 0);
-            XCTAssertTrue([tracks[0] isKindOfClass:[Track class]]);
+            XCTAssertNotNil(tracks, @"Tracks should not be nil");
+            XCTAssertGreaterThan(tracks.count, 0, @"Fetched tracks count should be greater than 0");
+            XCTAssertTrue([tracks[0] isKindOfClass:[Track class]], @"Array object should be of type Track");
         }
         [getTrackListExpectation fulfill];
     }];
