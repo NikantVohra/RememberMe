@@ -11,6 +11,8 @@ target 'RememberMeTests' do
     pod 'SDWebImage'
     pod 'AFNetworking'
 	pod 'OCMock'
+	pod 'Specta'
+    pod 'Expecta'
 	pod 'SVProgressHUD'
 end
 
