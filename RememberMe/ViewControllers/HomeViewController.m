@@ -13,26 +13,30 @@
 #import "GameManager.h"
 #import "Constants.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "ArrayDataSource.h"
 
 
+static NSString * const TrackCellIdentifier = @"TrackCollectionViewCell";
+static const int CellsPerRow = maxTracks / 2;
+static const float CellPadding = 5.0;
 
-@interface HomeViewController()<UICollectionViewDataSource, UICollectionViewDelegate, GameManagerDelegate>
+
+@interface HomeViewController()<UICollectionViewDelegate, GameManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *trackList;
 @property (nonatomic, strong) GameManager *gameManager;
+@property (nonatomic, strong) ArrayDataSource *tracksArrayDataSource;
+
 @end
 
 @implementation HomeViewController
 
-static const int CellsPerRow = maxTracks / 2;
-static const float CellPadding = 5.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.trackList = [[NSMutableArray alloc] init];
     self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
     [self startGame];
     
 }
@@ -40,6 +44,7 @@ static const float CellPadding = 5.0;
 - (void)didReceiveMemoryWarning {
     
 }
+
 
 - (void)startGame {
     self.gameManager = [[GameManager alloc] init];
@@ -49,6 +54,7 @@ static const float CellPadding = 5.0;
         [SVProgressHUD dismiss];
         if(!error) {
             [self.trackList addObjectsFromArray:tracks];
+            [self configureCollectionViewDatasource];
             [self.collectionView reloadData];
         }
         else {
@@ -59,28 +65,22 @@ static const float CellPadding = 5.0;
 
 #pragma mark - UICollectionView DataSource
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return self.trackList.count;
+- (void)configureCollectionViewDatasource {
+    CollectionViewCellCellConfigureBlock configureCell = ^(TrackCollectionViewCell *cell, Track *track) {
+        [cell configureWithTrack:track];
+    };
+    NSArray *tracks = self.trackList;
+    self.tracksArrayDataSource = [[ArrayDataSource alloc] initWithItems:tracks
+                                                         cellIdentifier:TrackCellIdentifier
+                                                     configureCellBlock:configureCell];
+    self.collectionView.dataSource = self.tracksArrayDataSource;
 }
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    TrackCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TrackCollectionViewCell" forIndexPath:indexPath];
-    Track *track = [self.trackList objectAtIndex:indexPath.row];
-    [cell configureWithTrack:track];
-    return cell;
-}
-
 
 #pragma mark - UICollectionView Delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat cellWidth = (collectionView.frame.size.width / (CellsPerRow + 1)) - CellPadding;
     return CGSizeMake(cellWidth, cellWidth);
-;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -126,6 +126,7 @@ static const float CellPadding = 5.0;
     [self.gameManager restartGame];
     [self.trackList removeAllObjects];
     [self.trackList addObjectsFromArray:[[self.gameManager currentGame] tracks]];
+    [self configureCollectionViewDatasource];
     [self.collectionView reloadData];
 }
 
