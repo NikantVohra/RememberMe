@@ -14,6 +14,8 @@
 #import "Constants.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "ArrayDataSource.h"
+#import "AFNetworkReachabilityManager.h"
+
 
 
 static NSString * const TrackCellIdentifier = @"TrackCollectionViewCell";
@@ -27,6 +29,7 @@ static const float CellPadding = 5.0;
 @property (nonatomic, strong) NSMutableArray *trackList;
 @property (nonatomic, strong) GameManager *gameManager;
 @property (nonatomic, strong) ArrayDataSource *tracksArrayDataSource;
+@property (nonatomic) BOOL hasGameStarted;
 
 @end
 
@@ -37,14 +40,14 @@ static const float CellPadding = 5.0;
     [super viewDidLoad];
     self.trackList = [[NSMutableArray alloc] init];
     self.collectionView.delegate = self;
-    [self startGame];
+    self.hasGameStarted = NO;
+    [self checkNetworkAvailability];
     
 }
 
 - (void)didReceiveMemoryWarning {
-    
+    [super didReceiveMemoryWarning];
 }
-
 
 
 - (void)startGame {
@@ -54,12 +57,14 @@ static const float CellPadding = 5.0;
     [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
         [SVProgressHUD dismiss];
         if(!error) {
+            self.hasGameStarted = YES;
+            [self.trackList removeAllObjects];
             [self.trackList addObjectsFromArray:tracks];
             [self configureCollectionViewDatasource];
             [self.collectionView reloadData];
         }
         else {
-            
+            [self displayError:@"Some problem occured while preparing the game. Please try later."];
         }
     }];
 }
@@ -162,6 +167,41 @@ static const float CellPadding = 5.0;
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#pragma mark - Network Handling
+
+- (void)checkNetworkAvailability {
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                if(![self hasGameStarted]) {
+                    [self startGame];
+                }
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+            case AFNetworkReachabilityStatusUnknown:
+                if(![self hasGameStarted]) {
+                    [self displayError:@"Please check your internet connection and try again."];
+                }
+                break;
+            default:
+                break;
+        }
+    }];
+}
+
+#pragma mark - Error Handling
+
+- (void)displayError:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+                                                                             message:NSLocalizedString(message, nil)
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 
 
