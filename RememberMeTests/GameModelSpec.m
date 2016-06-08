@@ -34,7 +34,7 @@ SpecBegin(Game)
         });
         
         describe(@"designated initializer", ^{
-            it(@"initializes the game by making copy of the input tracks", ^{
+            it(@"initializes the game and makes copy of the input tracks", ^{
                 expect(game.tracks).toNot.beNil();
                 expect(game.tracks.count).to.equal(tracks.count * 2);
             });

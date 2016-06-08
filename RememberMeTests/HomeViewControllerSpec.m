@@ -20,6 +20,8 @@
 @property (nonatomic, strong) GameManager *gameManager;
 
 - (void)startGame;
+- (void)displayError:(NSString *)message;
+- (void)displayGameFinishedAlert;
 
 @end
 
@@ -34,6 +36,7 @@ SpecBegin(HomeViewController)
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *nav = [mainStoryboard instantiateViewControllerWithIdentifier:@"HomeViewNavigationController"];
         _vc = (HomeViewController *)[nav visibleViewController];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nav;
         UIView *view = _vc.view;
         expect(view).toNot.beNil();
     });
@@ -61,7 +64,19 @@ SpecBegin(HomeViewController)
         });
     });
 
-    
+    describe(@"displayError", ^{
+        it(@"displays the alert controller with the provided message", ^{
+            [_vc displayGameFinishedAlert];
+            expect(_vc.presentedViewController).to.beKindOf([UIAlertController class]);
+        });
+    });
+
+    describe(@"displayGameFinishedAlert", ^{
+        it(@"displays the alert controller with the game finished message", ^{
+            [_vc displayError:@"Please check your connection"];
+            expect(_vc.presentedViewController).to.beKindOf([UIAlertController class]);
+        });
+    });
 
     afterAll(^{
     });

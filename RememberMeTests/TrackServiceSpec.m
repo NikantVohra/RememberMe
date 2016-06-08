@@ -29,7 +29,6 @@ SpecBegin(TrackService)
     describe(@"Track Service", ^{
         it(@"fetches the tracklist of user from soundcloud API and returns it as Array", ^{
             waitUntil(^(DoneCallback done) {
-                
                 [trackService fetchTrackListWithCompletionHandler:^(NSArray *response, NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         expect(response).toNot.beNil();

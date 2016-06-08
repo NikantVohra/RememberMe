@@ -37,12 +37,8 @@ describe(@"GameManager", ^{
     beforeEach(^{
         mockDelegate = OCMProtocolMock(@protocol(GameManagerDelegate));
         gameManager = [[GameManager alloc] init];
-        NSMutableArray *tracksArray = [NSMutableArray new];
-        for (int i=0; i<8; i++) {
-            Track *newTrack = [[Track alloc] initWithDictionary:@{@"id":@(i)}];
-            [tracksArray addObject:newTrack];
-        }
-        gameManager.currentGame = [[Game alloc] initWithTracks:tracksArray];
+        
+        gameManager.currentGame = [[Game alloc] init];
         gameManager.matchedTracks = [NSMutableDictionary new];
         gameManager.selectedTrackIndex = -1;
         gameManager.delegate = mockDelegate;

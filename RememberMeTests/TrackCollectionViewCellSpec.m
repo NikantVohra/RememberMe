@@ -49,9 +49,9 @@ SpecBegin(TrackCollectionViewCell)
                     [cell flipToSide:YES];
                 });
                 it(@"sets the flipped property on the cell to Yes", ^{
-                    expect(cell.isFlipping).to.equal(YES);
+                    expect(cell.isFlipping).to.beTruthy();
                     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
-                    expect(cell.flipped).to.equal(YES);
+                    expect(cell.flipped).to.beTruthy();
                 });
             });
             context(@"back side", ^ {
@@ -59,9 +59,9 @@ SpecBegin(TrackCollectionViewCell)
                     [cell flipToSide:NO];
                 });
                 it(@"sets the flipped property on the cell to NO", ^{
-                    expect(cell.isFlipping).to.equal(YES);
+                    expect(cell.isFlipping).to.beTruthy();
                     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
-                    expect(cell.flipped).to.equal(NO);
+                    expect(cell.flipped).to.beFalsy();
                 });
             });
 
@@ -73,9 +73,9 @@ SpecBegin(TrackCollectionViewCell)
                 [cell flip];
             });
             it(@"flips the cell and switches the flipped property of the cell", ^{
-                expect(cell.isFlipping).to.equal(YES);
+                expect(cell.isFlipping).to.beTruthy;
                 [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
-                expect(cell.flipped).to.equal(YES);
+                expect(cell.flipped).to.beTruthy();
             });
             
         });

@@ -10,6 +10,6 @@
 
 @interface NSArray (Shuffle) 
 
--(NSArray *)shuffle;
+- (NSArray *)shuffle;
 
 @end
