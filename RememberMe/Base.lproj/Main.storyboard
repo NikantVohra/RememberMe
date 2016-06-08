@@ -8,7 +8,7 @@
         <!--Remember Me-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -87,7 +87,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XXL-Q9-chx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5OU-rv-xnp" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="5OU-rv-xnp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OTB-Mv-Vhi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -26,7 +26,7 @@ SpecBegin(TrackService)
     });
 
 
-    describe(@"service", ^{
+    describe(@"Track Service", ^{
         it(@"fetches the tracklist of user from soundcloud API and returns it as Array", ^{
             waitUntil(^(DoneCallback done) {
                 

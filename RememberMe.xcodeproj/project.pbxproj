@@ -15,6 +15,7 @@
 		054CC74B1D0292DD00526FF8 /* RememberMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC74A1D0292DD00526FF8 /* RememberMeUITests.m */; };
 		054CC7791D0299A700526FF8 /* TrackService.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC7781D0299A700526FF8 /* TrackService.m */; };
 		054CC77D1D0299F800526FF8 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 054CC77C1D0299F800526FF8 /* Track.m */; };
+		059446C91D07DC2D00B8A482 /* GameManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 059446C81D07DC2D00B8A482 /* GameManagerSpec.m */; };
 		05DE88481D02B4DF00D537E9 /* TrackServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88471D02B4DF00D537E9 /* TrackServiceSpec.m */; };
 		05DE884A1D02B6D900D537E9 /* TrackModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88491D02B6D900D537E9 /* TrackModelSpec.m */; };
 		05DE884E1D02BB8E00D537E9 /* TrackDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE884D1D02BB8E00D537E9 /* TrackDataManager.m */; };
@@ -24,11 +25,10 @@
 		05DE885E1D02E4C300D537E9 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE885D1D02E4C300D537E9 /* Game.m */; };
 		05DE88611D02E58A00D537E9 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88601D02E58A00D537E9 /* GameManager.m */; };
 		05DE88651D02EF1E00D537E9 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88641D02EF1E00D537E9 /* NSArray+Shuffle.m */; };
-		05DE886A1D03FE4800D537E9 /* GameManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88691D03FE4800D537E9 /* GameManagerTests.m */; };
 		05DE886C1D0400DE00D537E9 /* GameModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE886B1D0400DE00D537E9 /* GameModelSpec.m */; };
 		05DE88721D068CD000D537E9 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88711D068CD000D537E9 /* ArrayDataSource.m */; };
-		05DE88741D06945400D537E9 /* ArrayDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */; };
-		05DE88761D069ACD00D537E9 /* HomeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */; };
+		05DE88741D06945400D537E9 /* ArrayDataSourceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88731D06945400D537E9 /* ArrayDataSourceSpec.m */; };
+		05DE88761D069ACD00D537E9 /* HomeViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88751D069ACD00D537E9 /* HomeViewControllerSpec.m */; };
 		05DE88781D06ACEF00D537E9 /* TrackCollectionViewCellSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellSpec.m */; };
 		1F8D06BFA2CFA4E92C73805E /* libPods-RememberMeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E22622D924D7FAAA15DAD569 /* libPods-RememberMeTests.a */; };
 		97D5831CB398C92084A2B63A /* libPods-RememberMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E6DEFFD28AEF2EDB018BE6 /* libPods-RememberMe.a */; };
@@ -69,6 +69,7 @@
 		054CC7781D0299A700526FF8 /* TrackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackService.m; sourceTree = "<group>"; };
 		054CC77B1D0299F800526FF8 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
 		054CC77C1D0299F800526FF8 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		059446C81D07DC2D00B8A482 /* GameManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManagerSpec.m; sourceTree = "<group>"; };
 		05DE88461D02B45D00D537E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Services/Constants.h; sourceTree = "<group>"; };
 		05DE88471D02B4DF00D537E9 /* TrackServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackServiceSpec.m; sourceTree = "<group>"; };
 		05DE88491D02B6D900D537E9 /* TrackModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackModelSpec.m; sourceTree = "<group>"; };
@@ -85,12 +86,11 @@
 		05DE88601D02E58A00D537E9 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		05DE88631D02EF1E00D537E9 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffle.h"; sourceTree = "<group>"; };
 		05DE88641D02EF1E00D537E9 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Shuffle.m"; sourceTree = "<group>"; };
-		05DE88691D03FE4800D537E9 /* GameManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManagerTests.m; sourceTree = "<group>"; };
 		05DE886B1D0400DE00D537E9 /* GameModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelSpec.m; sourceTree = "<group>"; };
 		05DE88701D068CD000D537E9 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
 		05DE88711D068CD000D537E9 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
-		05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSourceTests.m; sourceTree = "<group>"; };
-		05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTests.m; sourceTree = "<group>"; };
+		05DE88731D06945400D537E9 /* ArrayDataSourceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSourceSpec.m; sourceTree = "<group>"; };
+		05DE88751D069ACD00D537E9 /* HomeViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerSpec.m; sourceTree = "<group>"; };
 		05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCollectionViewCellSpec.m; sourceTree = "<group>"; };
 		0B0E3B45EE2AA456F7B2E125 /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		362C0FF6FF08196A5B417DF5 /* Pods-RememberMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RememberMe/Pods-RememberMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,10 +180,10 @@
 				05DE88471D02B4DF00D537E9 /* TrackServiceSpec.m */,
 				05DE88491D02B6D900D537E9 /* TrackModelSpec.m */,
 				05DE88521D02BE1500D537E9 /* TrackDataManagerSpec.m */,
-				05DE88691D03FE4800D537E9 /* GameManagerTests.m */,
+				059446C81D07DC2D00B8A482 /* GameManagerSpec.m */,
 				05DE886B1D0400DE00D537E9 /* GameModelSpec.m */,
-				05DE88731D06945400D537E9 /* ArrayDataSourceTests.m */,
-				05DE88751D069ACD00D537E9 /* HomeViewControllerTests.m */,
+				05DE88731D06945400D537E9 /* ArrayDataSourceSpec.m */,
+				05DE88751D069ACD00D537E9 /* HomeViewControllerSpec.m */,
 				05DE88771D06ACEF00D537E9 /* TrackCollectionViewCellSpec.m */,
 				054CC7411D0292DD00526FF8 /* Info.plist */,
 			);
@@ -557,11 +557,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DE88781D06ACEF00D537E9 /* TrackCollectionViewCellSpec.m in Sources */,
-				05DE88761D069ACD00D537E9 /* HomeViewControllerTests.m in Sources */,
-				05DE88741D06945400D537E9 /* ArrayDataSourceTests.m in Sources */,
+				05DE88761D069ACD00D537E9 /* HomeViewControllerSpec.m in Sources */,
+				05DE88741D06945400D537E9 /* ArrayDataSourceSpec.m in Sources */,
 				05DE88531D02BE1500D537E9 /* TrackDataManagerSpec.m in Sources */,
+				059446C91D07DC2D00B8A482 /* GameManagerSpec.m in Sources */,
 				05DE886C1D0400DE00D537E9 /* GameModelSpec.m in Sources */,
-				05DE886A1D03FE4800D537E9 /* GameManagerTests.m in Sources */,
 				05DE884A1D02B6D900D537E9 /* TrackModelSpec.m in Sources */,
 				05DE88481D02B4DF00D537E9 /* TrackServiceSpec.m in Sources */,
 			);

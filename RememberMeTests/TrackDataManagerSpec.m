@@ -26,8 +26,8 @@ SpecBegin(TrackDataManager)
     });
 
 
-    describe(@"service", ^{
-        it(@"Gets the tracklist of user from the service and parses it to form an array of tracks", ^{
+    describe(@"TrackDataManager", ^{
+        it(@"gets the tracklist of user from the service and parses it to form an array of tracks", ^{
             waitUntil(^(DoneCallback done) {
                 
                 [trackService getTrackListWithCompletionHandler:^(NSArray *tracks, NSError *error) {
