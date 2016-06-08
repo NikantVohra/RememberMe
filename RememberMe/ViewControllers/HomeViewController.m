@@ -42,7 +42,8 @@ static const float CellPadding = 5.0;
     self.collectionView.delegate = self;
     self.hasGameStarted = NO;
     [self checkNetworkAvailability];
-    
+    self.gameManager = [[GameManager alloc] init];
+    self.gameManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,8 +52,6 @@ static const float CellPadding = 5.0;
 
 
 - (void)startGame {
-    self.gameManager = [[GameManager alloc] init];
-    self.gameManager.delegate = self;
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Preparing Game", nil)];
     [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
         [SVProgressHUD dismiss];

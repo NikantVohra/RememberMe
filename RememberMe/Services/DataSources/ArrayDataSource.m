@@ -35,8 +35,7 @@
     return self;
 }
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     return self.items[(NSUInteger) indexPath.row];
 }
 
