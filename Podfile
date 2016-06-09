@@ -5,6 +5,7 @@ target 'RememberMe' do
     pod 'SDWebImage'
     pod 'AFNetworking'
 	pod 'SVProgressHUD'
+	pod 'Mantle'
 end
 
 target 'RememberMeTests' do
@@ -14,6 +15,7 @@ target 'RememberMeTests' do
 	pod 'Specta'
     pod 'Expecta'
 	pod 'SVProgressHUD'
+	pod 'Mantle'
 end
 
 

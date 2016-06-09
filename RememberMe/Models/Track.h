@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface Track : NSObject<NSCopying>
+@interface Track : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, strong) NSNumber *trackId;
-@property (nonatomic, strong) NSString *artworkUrl;
+@property (nonatomic, strong, readonly) NSNumber *trackId;
+@property (nonatomic, strong, readonly) NSString *artworkUrl;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error;
 
 @end

@@ -34,7 +34,8 @@
             for(NSDictionary *trackDict in response) {
                 NSString *artworkUrl = trackDict[@"artwork_url"];
                 if(![artworkUrl isKindOfClass:[NSNull class]] && ![self isTrackArtworkAlreadyPresent:artworkUrl]) {
-                    Track *track = [[Track alloc] initWithDictionary:trackDict];
+                    NSError *conversionError = nil;
+                    Track *track = [MTLJSONAdapter modelOfClass:Track.class fromJSONDictionary:trackDict error:&conversionError];
                     [self.trackAtworkUrlCache setObject:@1 forKey:track.artworkUrl];
                     [tracks addObject:track];
                 }

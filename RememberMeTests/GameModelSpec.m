@@ -25,8 +25,9 @@ SpecBegin(Game)
         
         beforeEach(^{
             NSMutableArray *tracksArray = [NSMutableArray new];
+            NSError *error = nil;
             for (int i=0; i < maxTracks; i++) {
-                Track *newTrack = [[Track alloc] initWithDictionary:@{@"id":@(i)}];
+                Track *newTrack = [MTLJSONAdapter modelOfClass:Track.class fromJSONDictionary:@{@"id":@(i)} error:&error];
                 [tracksArray addObject:newTrack];
             }
             tracks = tracksArray;

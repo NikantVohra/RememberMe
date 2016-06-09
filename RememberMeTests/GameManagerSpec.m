@@ -42,9 +42,9 @@ describe(@"GameManager", ^{
         gameManager.matchedTracks = [NSMutableDictionary new];
         gameManager.selectedTrackIndex = -1;
         gameManager.delegate = mockDelegate;
-        
-        Track *track1 = [[Track alloc] initWithDictionary:@{@"id" : @123, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"}];
-        Track *track2 = [[Track alloc] initWithDictionary:@{@"id" : @215, @"artwork_url" : @"https://i1.sndcdn.com/artworks-0001657432-b1vhfv-large.jpg"}];
+        Track *track1 =  [MTLJSONAdapter modelOfClass:Track.class fromJSONDictionary:@{@"id" : @123, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"} error:nil];
+        Track *track2 = [MTLJSONAdapter modelOfClass:Track.class fromJSONDictionary:@{@"id" : @215, @"artwork_url" : @"https://i1.sndcdn.com/artworks-0001657432-b1vhfv-large.jpg"} error:nil];
+
         testTracks = @[track1, track2, [track1 copy], [track2 copy]];
         gameManager.currentGame.tracks = testTracks;
         

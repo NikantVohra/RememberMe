@@ -22,8 +22,9 @@ describe(@"Track", ^{
     });
     
     beforeEach(^{
-        trackDictionary = @{@"id" : @267291077, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"};;
-        track = [[Track alloc] initWithDictionary:trackDictionary];
+        trackDictionary = @{@"id" : @267291077, @"artwork_url" : @"https://i1.sndcdn.com/artworks-000165707152-b1vhfv-large.jpg"};
+        NSError *error = nil;
+        track = [MTLJSONAdapter modelOfClass:Track.class fromJSONDictionary:trackDictionary error:&error];
     });
     
     describe(@"designated initializer", ^{

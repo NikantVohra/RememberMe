@@ -78,6 +78,13 @@ SpecBegin(HomeViewController)
         });
     });
 
+    describe(@"collection view datasource", ^{
+        it(@"displays the alert controller with the game finished message", ^{
+            [_vc displayError:@"Please check your connection"];
+            expect(_vc.presentedViewController).to.beKindOf([UIAlertController class]);
+        });
+    });
+
     afterAll(^{
     });
 

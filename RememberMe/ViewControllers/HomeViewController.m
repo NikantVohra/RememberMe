@@ -36,6 +36,8 @@ static const float CellPadding = 5.0;
 @implementation HomeViewController
 
 
+#pragma mark - View Controller Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.trackList = [[NSMutableArray alloc] init];
@@ -51,22 +53,6 @@ static const float CellPadding = 5.0;
 }
 
 
-- (void)startGame {
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"Preparing Game", nil)];
-    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
-        [SVProgressHUD dismiss];
-        if(!error) {
-            self.hasGameStarted = YES;
-            [self.trackList removeAllObjects];
-            [self.trackList addObjectsFromArray:tracks];
-            [self configureCollectionViewDatasource];
-            [self.collectionView reloadData];
-        }
-        else {
-            [self displayError:@"Some problem occured while preparing the game. Please try later."];
-        }
-    }];
-}
 
 #pragma mark - Handle Rotation
 
@@ -130,7 +116,24 @@ static const float CellPadding = 5.0;
 }
 
 
-#pragma mark - Helper Methods
+#pragma mark - Game Helper Methods
+
+- (void)startGame {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Preparing Game", nil)];
+    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+        [SVProgressHUD dismiss];
+        if(!error) {
+            self.hasGameStarted = YES;
+            [self.trackList removeAllObjects];
+            [self.trackList addObjectsFromArray:tracks];
+            [self configureCollectionViewDatasource];
+            [self.collectionView reloadData];
+        }
+        else {
+            [self displayError:@"Some problem occured while preparing the game. Please try later."];
+        }
+    }];
+}
 
 - (IBAction)resetButtonPressed:(id)sender {
     [self resetGame];
@@ -157,8 +160,8 @@ static const float CellPadding = 5.0;
 
 - (void)displayGameFinishedAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Awesome", nil)
-                                                                             message:NSLocalizedString(@"You won the game. Play Again.", nil)
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
+        message:NSLocalizedString(@"You won the game. Play Again.", nil)
+        preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self resetGame];
     }];
