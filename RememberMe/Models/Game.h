@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSArray *tracks;
 
-- (id)initWithTracks:(NSArray *)tracks;
+- (instancetype)initWithTracks:(NSArray *)tracks;
 
 
 @end

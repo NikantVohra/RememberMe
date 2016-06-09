@@ -13,7 +13,7 @@
 
 @implementation Game
 
-- (id)initWithTracks:(NSArray *)tracks {
+- (instancetype)initWithTracks:(NSArray *)tracks {
     if(self = [super init]) {
         NSArray *filteredTracks = [[tracks shuffle] subarrayWithRange:NSMakeRange(0, maxTracks)];
         NSMutableArray *trackList = [[NSMutableArray alloc] init];
