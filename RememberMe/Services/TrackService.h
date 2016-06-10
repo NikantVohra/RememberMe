@@ -12,6 +12,12 @@
 
 @interface TrackService : NSObject
 
+
+/**
+ *  Fetches the track list from the service and returns a RAC signal which can be subscribed to get the response
+ *  returns RAC signal that executes the request to fetch the tracks from sounclodu service
+ */
+
 - (RACSignal *)fetchTrackList;
 
 @end
