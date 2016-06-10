@@ -1,5 +1,5 @@
 //
-//  TrackDataManagerTests.m
+//  TrackDataParserTests.m
 //  RememberMe
 //
 //  Created by anon on 6/4/16.
@@ -39,7 +39,7 @@ SpecBegin(TrackDataParser)
                     done();
                 }
                 error:^(NSError *error) {
-                     expect(error).to.beNil();
+                     expect(error).toNot.beNil();
                      done();
                 }];
                 
