@@ -710,7 +710,7 @@
 				INFOPLIST_FILE = RememberMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -723,7 +723,7 @@
 				INFOPLIST_FILE = RememberMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -735,7 +735,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RememberMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RememberMe.app/RememberMe";
 			};
@@ -748,7 +748,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = RememberMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMeTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RememberMe.app/RememberMe";
 			};
@@ -759,7 +759,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = RememberMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = RememberMe;
 			};
@@ -770,7 +770,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = RememberMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikant.RememberMeUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sctest.RememberMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = RememberMe;
 			};
