@@ -6,5 +6,5 @@ before_install:
   - sudo gem install xcpretty
 
 script:
- - xcodebuild -workspace TouristHelper.xcworkspace -scheme  TouristHelper -sdk iphonesimulator9.3 build test  | xcpretty -c && exit ${PIPESTATUS[0]}
+ - xcodebuild -workspace RememberMe.xcworkspace -scheme  RememberMe -sdk iphonesimulator9.3 build test  | xcpretty -c && exit ${PIPESTATUS[0]}
 
