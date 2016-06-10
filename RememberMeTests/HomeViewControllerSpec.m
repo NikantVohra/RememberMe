@@ -58,7 +58,7 @@ SpecBegin(HomeViewController)
         it(@"should call start game method on GameManager", ^{
             id gameManager = OCMClassMock([GameManager class]);
             _vc.gameManager = gameManager;
-            [[gameManager expect] startGameWithCompletionHandler:[OCMArg any]];
+            [[gameManager expect] startMemoryGame];
             [_vc startGame];
             OCMVerifyAll(gameManager);
         });

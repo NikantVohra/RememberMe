@@ -53,10 +53,12 @@ describe(@"GameManager", ^{
     describe(@"startGame", ^{
         it(@"calls the track service and wait for the tracklist to initialize the game", ^{
             waitUntil(^(DoneCallback done) {
-                [gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+                [[gameManager startMemoryGame] subscribeNext:^(NSArray *tracks) {
                     expect(tracks).notTo.beNil;
                     expect(tracks.count).to.beGreaterThan(0);
                     expect(gameManager.currentGame.tracks.count).to.beGreaterThan(0);
+                    done();
+                } error:^(NSError *error) {
                     done();
                 }];
             });

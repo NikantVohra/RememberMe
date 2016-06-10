@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Game.h"
+#import "TrackService.h"
+
 
 @class GameManager;
 
@@ -24,7 +26,7 @@
 @property (nonatomic, weak) id<GameManagerDelegate> delegate;
 @property (nonatomic, strong) Game *currentGame;
 
-- (void)startGameWithCompletionHandler:(void (^)(NSArray *tracks, NSError *error))completion;
+- (RACSignal *)startMemoryGame;
 
 - (void)selectTrackAtIndex:(NSInteger)index;
 

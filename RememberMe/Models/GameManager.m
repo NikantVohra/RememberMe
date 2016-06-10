@@ -11,7 +11,6 @@
 #import "Track.h"
 #import "NSArray+Shuffle.h"
 #import "Constants.h"
-#import "TrackService.h"
 
 @interface GameManager()
 
@@ -24,20 +23,24 @@
 @implementation GameManager
 
 
-- (void)startGameWithCompletionHandler:(void (^)(NSArray *tracks, NSError *error))completion {
-    TrackDataParser *parser = [[TrackDataParser alloc] init];
-    TrackService *service = [[TrackService alloc] init];
-    [[[service fetchTrackList] flattenMap:^RACStream *(id json) {
-        return [parser parseResponse:json];
-    }]
-    subscribeNext:^(NSArray *tracks) {
-        self.currentGame = [[Game alloc] initWithTracks:tracks];
-        self.matchedTracks = [[NSMutableDictionary alloc] init];
-        self.selectedTrackIndex = -1;
-        completion(self.currentGame.tracks, nil);
-    } error:^(NSError *error) {
-        completion(nil, error);
+- (RACSignal *)startMemoryGame {
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        TrackDataParser *parser = [[TrackDataParser alloc] init];
+        TrackService *service = [[TrackService alloc] init];
+        [[[service fetchTrackList] flattenMap:^RACStream *(id json) {
+            return [parser parseResponse:json];
+        }]
+         subscribeNext:^(NSArray *tracks) {
+             self.currentGame = [[Game alloc] initWithTracks:tracks];
+             self.matchedTracks = [[NSMutableDictionary alloc] init];
+             self.selectedTrackIndex = -1;
+             [subscriber sendNext:self.currentGame.tracks];
+         } error:^(NSError *error) {
+             [subscriber sendError:error];
+         }];
+        return nil;
     }];
+    return signal;
 
 }
 

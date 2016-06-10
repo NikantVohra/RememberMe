@@ -120,18 +120,17 @@ static const float CellPadding = 5.0;
 
 - (void)startGame {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Preparing Game", nil)];
-    [self.gameManager startGameWithCompletionHandler:^(NSArray *tracks, NSError *error) {
+    [[[self.gameManager startMemoryGame] deliverOn:[RACScheduler mainThreadScheduler]]
+        subscribeNext:^(NSArray *tracks) {
         [SVProgressHUD dismiss];
-        if(!error) {
-            self.hasGameStarted = YES;
-            [self.trackList removeAllObjects];
-            [self.trackList addObjectsFromArray:tracks];
-            [self configureCollectionViewDatasource];
-            [self.collectionView reloadData];
-        }
-        else {
-            [self displayError:@"Some problem occured while preparing the game. Please try later."];
-        }
+        self.hasGameStarted = YES;
+        [self.trackList removeAllObjects];
+        [self.trackList addObjectsFromArray:tracks];
+        [self configureCollectionViewDatasource];
+        [self.collectionView reloadData];
+    } error:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [self displayError:@"Some problem occured while preparing the game. Please try later."];
     }];
 }
 
