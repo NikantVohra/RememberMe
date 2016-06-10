@@ -2,8 +2,8 @@
 //  ArrayDataSource.h
 //  RememberMe
 //
-//  Created by Vohra, Nikant on 6/7/16.
-//  Copyright © 2016 Vohra, Nikant. All rights reserved.
+//  Created by anon on 6/7/16.
+//  Copyright © 2016 anon. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
