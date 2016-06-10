@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface TrackService : NSObject
 
--(void)fetchTrackListWithCompletionHandler:(void(^)(NSArray *response, NSError *error))completion;
+- (RACSignal *)fetchTrackList;
 
 @end

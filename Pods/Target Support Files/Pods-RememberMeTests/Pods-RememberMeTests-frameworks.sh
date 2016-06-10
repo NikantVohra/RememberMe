@@ -82,3 +82,26 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-RememberMeTests/AFNetworking.framework"
+  install_framework "Pods-RememberMeTests/Mantle.framework"
+  install_framework "Pods-RememberMeTests/ReactiveCocoa.framework"
+  install_framework "Pods-RememberMeTests/Result.framework"
+  install_framework "Pods-RememberMeTests/SDWebImage.framework"
+  install_framework "Pods-RememberMeTests/SVProgressHUD.framework"
+  install_framework "Pods-RememberMeTests/Expecta.framework"
+  install_framework "Pods-RememberMeTests/OCMock.framework"
+  install_framework "Pods-RememberMeTests/Specta.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-RememberMeTests/AFNetworking.framework"
+  install_framework "Pods-RememberMeTests/Mantle.framework"
+  install_framework "Pods-RememberMeTests/ReactiveCocoa.framework"
+  install_framework "Pods-RememberMeTests/Result.framework"
+  install_framework "Pods-RememberMeTests/SDWebImage.framework"
+  install_framework "Pods-RememberMeTests/SVProgressHUD.framework"
+  install_framework "Pods-RememberMeTests/Expecta.framework"
+  install_framework "Pods-RememberMeTests/OCMock.framework"
+  install_framework "Pods-RememberMeTests/Specta.framework"
+fi

@@ -82,3 +82,20 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-RememberMe/AFNetworking.framework"
+  install_framework "Pods-RememberMe/Mantle.framework"
+  install_framework "Pods-RememberMe/ReactiveCocoa.framework"
+  install_framework "Pods-RememberMe/Result.framework"
+  install_framework "Pods-RememberMe/SDWebImage.framework"
+  install_framework "Pods-RememberMe/SVProgressHUD.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-RememberMe/AFNetworking.framework"
+  install_framework "Pods-RememberMe/Mantle.framework"
+  install_framework "Pods-RememberMe/ReactiveCocoa.framework"
+  install_framework "Pods-RememberMe/Result.framework"
+  install_framework "Pods-RememberMe/SDWebImage.framework"
+  install_framework "Pods-RememberMe/SVProgressHUD.framework"
+fi

@@ -29,15 +29,17 @@ SpecBegin(TrackService)
     describe(@"Track Service", ^{
         it(@"fetches the tracklist of user from soundcloud API and returns it as Array", ^{
             waitUntil(^(DoneCallback done) {
-                [trackService fetchTrackListWithCompletionHandler:^(NSArray *response, NSError *error) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        expect(response).toNot.beNil();
-                        expect(response).to.beKindOf([NSArray class]);
-                        expect(response.count).to.beGreaterThan(0);
-                        expect(error).to.beNil();
-                    });
+                [[trackService fetchTrackList] subscribeNext:^(NSArray *tracks) {
+                    expect(tracks).toNot.beNil();
+                    expect(tracks).to.beKindOf([NSArray class]);
+                    expect(tracks.count).to.beGreaterThan(0);
                     done();
-                }];
+                }
+                  error:^(NSError *error) {
+                      expect(error).to.beNil();
+                      done();
+                  }];
+
             });
         });
     });

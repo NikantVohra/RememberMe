@@ -7,10 +7,11 @@
 //
 
 #import "GameManager.h"
-#import "TrackDataManager.h"
+#import "TrackDataParser.h"
 #import "Track.h"
 #import "NSArray+Shuffle.h"
 #import "Constants.h"
+#import "TrackService.h"
 
 @interface GameManager()
 
@@ -23,25 +24,21 @@
 @implementation GameManager
 
 
-
 - (void)startGameWithCompletionHandler:(void (^)(NSArray *tracks, NSError *error))completion {
-    TrackDataManager *dataManager = [[TrackDataManager alloc] init];
-    [dataManager getTrackListWithCompletionHandler:^(NSArray *tracks, NSError *error) {
-        if(!error) {
-            if(tracks.count < maxTracks) {
-                completion(nil, error);
-            }
-            else {
-                self.currentGame = [[Game alloc] initWithTracks:tracks];
-                self.matchedTracks = [[NSMutableDictionary alloc] init];
-                self.selectedTrackIndex = -1;
-                completion(self.currentGame.tracks, nil);
-            }
-        }
-        else {
-            completion(nil, error);
-        }
+    TrackDataParser *parser = [[TrackDataParser alloc] init];
+    TrackService *service = [[TrackService alloc] init];
+    [[[service fetchTrackList] flattenMap:^RACStream *(id json) {
+        return [parser parseResponse:json];
+    }]
+    subscribeNext:^(NSArray *tracks) {
+        self.currentGame = [[Game alloc] initWithTracks:tracks];
+        self.matchedTracks = [[NSMutableDictionary alloc] init];
+        self.selectedTrackIndex = -1;
+        completion(self.currentGame.tracks, nil);
+    } error:^(NSError *error) {
+        completion(nil, error);
     }];
+
 }
 
 - (void)selectTrackAtIndex:(NSInteger)index
