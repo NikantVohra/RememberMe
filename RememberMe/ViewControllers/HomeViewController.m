@@ -106,8 +106,8 @@ static const float CellPadding = 5.0;
 - (void)gameManager:(GameManager *)manager didNotFindMatchAtIndex:(NSInteger)firstindex withIndex:(NSInteger)secondIndex {
     TrackCollectionViewCell *firstCell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:firstindex inSection:0]];
     TrackCollectionViewCell *secondCell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:secondIndex inSection:0]];
-    [firstCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
-    [secondCell performSelector:@selector(flip) withObject:nil afterDelay:0.5];
+    [firstCell performSelector:@selector(showBackSide) withObject:nil afterDelay:0.5];
+    [secondCell performSelector:@selector(showBackSide) withObject:nil afterDelay:0.5];
 }
 
 
@@ -152,7 +152,7 @@ static const float CellPadding = 5.0;
     for (int i = 0; i < self.trackList.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
         TrackCollectionViewCell *cell = (TrackCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        [cell flipToSide:NO];
+        [cell showBackSide];
     }
 }
 

@@ -16,8 +16,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *artworkImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
+
 - (void)configureWithTrack:(Track *)track;
 - (void)flip;
-- (void)flipToSide:(BOOL)front;
+- (void)showBackSide;
+- (void)showFrontSide;
+
 
 @end

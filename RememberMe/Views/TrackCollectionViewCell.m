@@ -27,6 +27,16 @@
     [self flipToSide:!self.flipped];
 }
 
+- (void)showBackSide {
+    [self flipToSide:NO];
+}
+
+
+- (void)showFrontSide {
+    [self flipToSide:YES];
+}
+
+
 - (void)flipToSide:(BOOL)front {
     if(self.isFlipping) {
         return;

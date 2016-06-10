@@ -46,7 +46,7 @@ SpecBegin(TrackCollectionViewCell)
         describe(@"flip to", ^{
             context(@"front side", ^ {
                 beforeEach(^{
-                    [cell flipToSide:YES];
+                    [cell showFrontSide];
                 });
                 it(@"sets the flipped property on the cell to Yes", ^{
                     expect(cell.isFlipping).to.beTruthy();
@@ -56,7 +56,7 @@ SpecBegin(TrackCollectionViewCell)
             });
             context(@"back side", ^ {
                 beforeEach(^{
-                    [cell flipToSide:NO];
+                    [cell showBackSide];
                 });
                 it(@"sets the flipped property on the cell to NO", ^{
                     expect(cell.isFlipping).to.beTruthy();
